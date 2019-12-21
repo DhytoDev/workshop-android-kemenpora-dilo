@@ -1,15 +1,17 @@
 package com.dhytodev.todoapp
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 @Dao
 interface TaskDao {
 
-    @Insert
-    fun insertTask(task: Task) : Long
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertTask(task: Task)
 
     @Query("SELECT * FROM tasks")
-    fun getTasks() : List<Task>
+    fun getTasks() : LiveData<List<Task>>
 }
