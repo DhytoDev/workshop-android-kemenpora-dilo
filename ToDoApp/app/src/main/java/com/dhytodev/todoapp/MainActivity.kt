@@ -1,7 +1,7 @@
 package com.dhytodev.todoapp
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,10 +25,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-         recyclerViewTasks.apply {
-             layoutManager = LinearLayoutManager(this@MainActivity)
-             adapter = taskRvAdapter
-         }
+        recyclerViewTasks.apply {
+            layoutManager = LinearLayoutManager(this@MainActivity)
+            adapter = taskRvAdapter
+        }
+
+        fabAddTask.setOnClickListener {
+            val intent = Intent(this, AddTaskActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun insertTasks() {
@@ -37,12 +42,12 @@ class MainActivity : AppCompatActivity() {
 
         taskViewModel.addNewTask(task1)
         taskViewModel.addNewTask(task2)
-        
+
     }
 
     private fun observeTasks() {
         taskViewModel.getAllTasks().observe(this, Observer {
-            if(it.isNotEmpty()) {
+            if (it.isNotEmpty()) {
                 taskRvAdapter.listTasks = it
                 taskRvAdapter.notifyDataSetChanged()
             }

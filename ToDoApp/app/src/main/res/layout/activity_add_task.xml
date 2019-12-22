@@ -25,13 +25,14 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonSaveTask"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textInputLayoutTask"
+        android:backgroundTint="@color/colorPrimary"
         android:text="Save"
         android:textColor="@android:color/white"
-        android:backgroundTint="@color/colorPrimary"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textInputLayoutTask" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
