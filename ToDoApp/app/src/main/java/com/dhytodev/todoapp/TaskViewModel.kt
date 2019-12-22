@@ -1,7 +1,6 @@
 package com.dhytodev.todoapp
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 /**
@@ -10,12 +9,12 @@ import androidx.lifecycle.ViewModel
  */
 class TaskViewModel(
     private val database: TaskDatabase
-) : ViewModel(){
+) : ViewModel() {
 
     fun addNewTask(task: Task) =
         database.taskDao().insertTask(task)
 
-    fun getAllTasks() : LiveData<List<Task>> =
+    fun getAllTasks(): LiveData<List<Task>> =
         database.taskDao().getTasks()
 }
 
