@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.layout_task_item.view.*
  */
 class TaskRvAdapter : RecyclerView.Adapter<TaskRvAdapter.TaskViewHolder>() {
 
-    val listTasks = listOf<Task>()
+    var listTasks = listOf<Task>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
         val view = LayoutInflater.from(parent.context)
